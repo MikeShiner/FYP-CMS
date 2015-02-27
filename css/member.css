@@ -1,0 +1,30 @@
+html {
+    background-color: cornflowerblue;
+}
+.container {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    margin: auto;
+    border: solid 4px grey;
+    border-radius: 10px;
+    width: 80%;
+    padding-top: 20px;
+    padding-left: 10px;
+    background-color: white;
+    padding-bottom: 10px;
+
+}
+#cssSwitch {
+    font-size: 14px;
+    float: right;
+    margin: 0 15px 5px 0;
+    color: inherit;
+}
+.content {
+    width: 100%
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+a {
+    color: inherit;
+    text-decoration: underline;
+}
