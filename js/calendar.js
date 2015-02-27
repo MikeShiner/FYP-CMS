@@ -87,11 +87,21 @@ $(document).ready(function () {
     //////// Draw List View //////////////////////////////////
     //////////////////////////////////////////////////////////
     function drawListView(fullDate, month, year) {
-        html = "<div id='listViewCont'>";
-        for (var i; i < events.length; i++){
-        $('#listSwitch').html(events[0].name);
-    }
+        var listViewCont = $('<div></div>');
+            listViewCont.addClass("listViewCont");
+        for (var i=0; i < events.length; i++) {
+            if (events[i].date.substr(-2)){
+                
+            }
 
+           var container =  $('<div></div>');
+        container.addClass("eventElement");
+            container.html(events[i].time.substr(0, 5) + "      " + events[i].date.substr(-2) + " " +events[i].name);
+            listViewCont.append(container);
+        }
+        $('#listSwitch').html(listViewCont);
+
+    }
 
     //////////////////////////////////////////////////////////
     //////// draw Calendar ///////////////////////////////////

@@ -116,8 +116,11 @@ label {
 .radioCont input[type="radio"]:checked + label {
     background-color: #eeeeee;
 }
-#listViewCont {
+.listViewCont {
     width: 100%;
     text-align: center;
+    border: 1px solid black;
+}
+.eventElement {
     border: 1px solid black;
 }
