@@ -14,20 +14,19 @@ $(document).ready(function () {
     var month = curMonth;
     var curYear = fullDate.getFullYear();
     var year = curYear;
-
-    var events = $.ajax({
-        type: "GET",
-        url: "php/events.php?month=" + month,
-        async: false
-    });
-    console.log(events);
-    events = JSON.parse(events.responseText);
+    var events;
 
     var listSwitch = $('#listSwitch');
     listSwitch.hide();
-    getEvents(month);
-    drawCalendar(fullDate, month, year);
+    init();
     listSwitch.slideDown();
+
+    function init() {
+        // Initialize Events
+        getEvents(month);
+        // Get Default View
+        changeRadioView($('input[name=form]:checked', '#radForm').attr('id'));
+    }
 
     function getEvents(month) {
         events = $.ajax({
@@ -50,7 +49,7 @@ $(document).ready(function () {
             year--
         }
         getEvents(month);
-        drawCalendar(fullDate, month, year);
+        changeRadioView($('input[name=form]:checked', '#radForm').attr('id'));
     });
 
     $('#next').click(function () {
@@ -60,27 +59,33 @@ $(document).ready(function () {
             year++
         }
         getEvents(month);
-        drawCalendar(fullDate, month, year);
+        changeRadioView($('input[name=form]:checked', '#radForm').attr('id'));
     });
 
     $('#calTable').on("click", "td", function () {
         console.log($(this).text() + " Month: " + month)
     });
 
-    $('.radioCont form input:radio').change(function (e) {
-        if (e.target.id == "calForm") {
+    function changeRadioView(e) {
+        $('#month_label').html(month_labels[month] + " " + year);
+        if (e == "calView") {
             listSwitch.slideUp("normal", function () {
                 drawCalendar(fullDate, month, year)
             });
+            console.log("Calendar Logged");
             listSwitch.slideDown();
-            console.log(e.target.id);
-        } else if (e.target.id == "listForm") {
+        } else if (e == "listView") {
             listSwitch.slideUp("normal", function () {
                 drawListView(fullDate, month, year)
             });
+            console.log("List Logged");
             listSwitch.slideDown();
-            console.log(e.target.id);
         }
+    }
+
+    $('.radioCont #radForm input:radio').change(function (e) {
+        changeRadioView(e.target.id);
+        console.log("Change " + e.target.id);
     });
 
     //////////////////////////////////////////////////////////
@@ -88,16 +93,35 @@ $(document).ready(function () {
     //////////////////////////////////////////////////////////
     function drawListView(fullDate, month, year) {
         var listViewCont = $('<div></div>');
-            listViewCont.addClass("listViewCont");
-        for (var i=0; i < events.length; i++) {
-            if (events[i].date.substr(-2)){
-                
+        listViewCont.addClass("listViewCont");
+        for (var i = 0; i < events.length; i++) {
+            var date;
+            switch (events[i].date.substr(-2)) {
+                case "01":
+                    date = "1st";
+                    break;
+                case "02":
+                    date = "2nd";
+                    break;
+                case "03":
+                    date = "3rd";
+                    break;
+                default:
+                    date = (events[i].date.substr(-2) + "th");
             }
 
-           var container =  $('<div></div>');
-        container.addClass("eventElement");
-            container.html(events[i].time.substr(0, 5) + "      " + events[i].date.substr(-2) + " " +events[i].name);
-            listViewCont.append(container);
+            var container = $('<div></div>');
+            container.addClass("eventElement");
+
+            var timeCont = $('<div></div>');
+            timeCont.addClass("timeCont");
+            timeCont.html(events[i].time.substr(0, 5) + " " + date);
+
+            var infoCont = $('<div></div>');
+            infoCont.addClass("infoCont");
+            infoCont.html(events[i].name);
+
+            listViewCont.append(container.append(timeCont).append(infoCont));
         }
         $('#listSwitch').html(listViewCont);
 
@@ -124,9 +148,9 @@ $(document).ready(function () {
         console.log(rows);
 
         var html = '<div id="dayHead">' +
-        '<div class="calDayItem">Sun</div><div class="calDayItem">Mon</div><div class="calDayItem">Tue</div>'+
-        '<div class="calDayItem">Wed</div><div class="calDayItem">Thu</div><div class="calDayItem">Fri</div>' +
-        '<div class="calDayItem">Sat</div></div><table id="calTable">';
+            '<div class="calDayItem">Sun</div><div class="calDayItem">Mon</div><div class="calDayItem">Tue</div>' +
+            '<div class="calDayItem">Wed</div><div class="calDayItem">Thu</div><div class="calDayItem">Fri</div>' +
+            '<div class="calDayItem">Sat</div></div><table id="calTable">';
 
         console.log(events);
         // Drawing Calendar
@@ -174,17 +198,16 @@ $(document).ready(function () {
         }
         html += '</table>';
         $('#listSwitch').html(html);
-        $('#month_label').html(month_labels[month] + " " + year);
 
         // get Events
 
         // DEBUG
-        console.log("Day: " + day_labels[day] + " (" + day + ")");
-        console.log("Date: " + date);
-        console.log("Month: " + month_labels[month] + " (" + month + ")");
-        console.log("Year: " + year);
-        console.log("Days in this month: " + dIM);
-        console.log("Starting Day: " + day_labels[startingDay] + " (" + startingDay + ")");
+        //    console.log("Day: " + day_labels[day] + " (" + day + ")");
+        //    console.log("Date: " + date);
+        //    console.log("Month: " + month_labels[month] + " (" + month + ")");
+        //    console.log("Year: " + year);
+        //    console.log("Days in this month: " + dIM);
+        //    console.log("Starting Day: " + day_labels[startingDay] + " (" + startingDay + ")");
     }
 })
 ;
