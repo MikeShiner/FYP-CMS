@@ -1,8 +1,18 @@
 Columns: id, name, type, description, time, date, duration, public
 
-INSERT INTO `cms`.`events` (`id`, `name`, `type`, `description`, `time`, `date`, `duration`, `public`) VALUES
+CREATE TABLE IF NOT EXISTS events (id int NOT NULL auto_increment,
+                                   `name` VARCHAR(50) NOT NULL,
+                                   `type` VARCHAR(15) NOT NULL,
+                                   `decription` TEXT,
+                                   `time` TIME,
+                                   `date` DATE,
+                                   `duration` int(2),
+                                   `public` tinyint(1),
+                                  PRIMARY KEY (id))
+
+INSERT INTO `cl49-cms-h1t`.`events` (`id`, `name`, `type`, `description`, `time`, `date`, `duration`, `public`) VALUES
 (NULL, 'Public Rehearsal', 'rehearsal', 'Public rehearsal for all to attend. Feel free to bring a friend.', '16:15:00', '2015-02-13', '1', '1');
 (NULL, 'Choir Practice', 'practice', 'Normal practice', '15:30:00', '2015-02-13', '1', '0'),
 (NULL, 'Sponsored Swim', 'sponsor', 'Sponsored swim by Lions Club at New Milton Recreation Centre, please come see us at anytime.', '16:00:00', '2015-02-28', '2', '1');
 (NULL, 'TEST Choir Practice', 'practice', 'Normal practice', '15:30:00', '2015-03-05', '1', '0'),
-(NULL, 'TEST Royal Albert Hall Performance', 'performance', 'Performance at the ROYAL ALBERT HALL! How exciting.', '20:00:00', '2015-03-20', '1', '1'),
+(NULL, 'TEST Royal Albert Hall Performance', 'performance', 'Performance at the ROYAL ALBERT HALL! How exciting.', '20:00:00', '2015-03-20', '1', '1')

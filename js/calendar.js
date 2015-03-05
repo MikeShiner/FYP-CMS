@@ -11,9 +11,10 @@ $(document).ready(function () {
 
     var fullDate = new Date();
     var curMonth = fullDate.getMonth();
-    var month = curMonth;
+    var month = fullDate.getMonth();
+    console.log("THE MONTHS: " + month);
     var curYear = fullDate.getFullYear();
-    var year = curYear;
+    var year = fullDate.getFullYear();
     var events;
 
     var listSwitch = $('#listSwitch');
@@ -23,12 +24,15 @@ $(document).ready(function () {
 
     function init() {
         // Initialize Events
+        console.log("THE MONTHS: " + month);
         getEvents(month);
         // Get Default View
         changeRadioView($('input[name=form]:checked', '#radForm').attr('id'));
     }
 
     function getEvents(month) {
+        $('#debug').append("<p>month: " + month+"</p>");
+        console.log(month);
         events = $.ajax({
             type: "GET",
             url: "php/events.php?month=" + month,
