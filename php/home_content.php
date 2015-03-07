@@ -1,11 +1,10 @@
 <?php
-require_once 'connect.php';
 
 
 getContent();
 function getContent(){
-    $connect = pdoConnect();
-    $stmt = $connect->prepare('SELECT * FROM home ORDER BY pos ASC');
+    $connect = new PDO("mysql:host=localhost;dbname=cl49-cms-h1t", "cl49-cms-h1t", "shinerfyp");
+    $stmt = $connect->prepare('SELECT * FROM Home ORDER BY pos ASC');
     $stmt->execute();
     $result = $stmt->fetchAll();
     buildString($result);
@@ -21,5 +20,4 @@ function buildString($data){
     }
 
     echo $string;
-
 }

@@ -1,12 +1,14 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Shiner
+ * Date: 07/03/2015
+ * Time: 18:43
+ */
+$page = $_GET['page'];
+getContent($page);
 
-//if (isset($_GET['page']))
-    $page = $_GET['page'];
-    getContent($page);
-//}
-
-function getContent($page)
-{
+function getContent($page){
     try {
         $connect = new PDO("mysql:host=localhost;dbname=cl49-cms-h1t", "cl49-cms-h1t", "shinerfyp");
         $stmt = $connect->prepare('SELECT * FROM ' . $page . ' ORDER BY pos ASC');
@@ -20,8 +22,8 @@ function getContent($page)
     }
 }
 
-function packContent($data)
-{
+function packContent($data){
+
     $itemdata = array();
     foreach ($data as $row) {
         $itemdata[] = array(
@@ -31,8 +33,6 @@ function packContent($data)
             'content' => $row['content']
         );
     }
-
     $jsonitem = json_encode($itemdata);
     return $jsonitem;
-
 }

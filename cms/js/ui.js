@@ -10,19 +10,7 @@ $(document).ready(function () {
 
     //Functions
     function setup() {
-        dbConnect();
         getContent();
-    }
-
-
-    function dbConnect() {
-        $.ajax({
-            type: "GET",
-            url: "../php/connect.php",
-            success: function (result) {
-                $('#debug').append(result);
-            }
-        });
     }
 
     function getContent() {
@@ -182,7 +170,7 @@ $(document).ready(function () {
         console.log(data);
         $.ajax({
             type: "POST",
-            url: "php/update.php",
+            url: "php/EPupdate.php",
             data: data,
             success: function (result) {
                 $('#debug').html(result);
@@ -203,7 +191,6 @@ $(document).ready(function () {
     $('#homeSubmit').click(function () {
         var page = $('#options').find('h3').html().substring(6);
         var objectArray = [];
-        console.log(localStorage);
         //Get new positions of data
         //foreach()
         console.log(changePos);
@@ -213,7 +200,7 @@ $(document).ready(function () {
         }
         console.log(objectArray);
         //Perform some validation here
-        postContent(objectArray);
+        //postContent(objectArray);
     });
 
 });
