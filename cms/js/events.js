@@ -10,12 +10,12 @@ $(document).ready(function () {
 
     //Functions
     function setup() {
-        getContent();
+        //getContent();
     }
 
     function getContent() {
         //get current page
-        var url = "?page=" + page;
+        //var url = "?page=" + page;
         // Ajax request:
         $.ajax({
             type: "GET",

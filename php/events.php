@@ -16,10 +16,11 @@ function getEvents($month)
 
     try {
         $connect = new PDO("mysql:host=localhost;dbname=cl49-cms-h1t", "cl49-cms-h1t", "shinerfyp");
-        $stmt = $connect->prepare('SELECT * FROM events WHERE MONTH(date) = :date ORDER BY date ASC');
+        $stmt = $connect->prepare('SELECT * FROM `calendar-events` WHERE MONTH(date) = :date ORDER BY date ASC');
         $stmt->execute(array(':date' => $month));
         $result = $stmt->fetchAll();
         $contentItems = packContent($result);
+//        var_dump($result);
         echo $contentItems;
     } catch (PDOException $e) {
         var_dump($e);

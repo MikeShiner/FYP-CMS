@@ -10,16 +10,20 @@ $(document).ready(function () {
     }
 
     // #pageElements selectable & blur event
-    $('#pageElements').sortable({cancel: '.item', update: function (event, ui) {
+    $('#pageElements').sortable({cancel: '.item', update: function () {
             changePos = $('#pageElements').sortable('serialize');
             console.log("Serialize: " + changePos);
-    }}).on('blur', '.item', function(e){
+    }})
+        .on('blur', '.item', function(e){
         var tag, id, content;
         tag = e.target.tagName;
         id = e.target.id;
         content = $('#' + id).html();
         console.log("ID Change: " + id);
         saveToLocal(tag, id, content);
+    })
+        .on('click', '.toolbar', function(e){
+        deleteItem(e.target.id.substr(3));
     });
 
     // Click Events
@@ -31,6 +35,7 @@ $(document).ready(function () {
     });
 
     $('#clearStorage').click(function(){clearStorage()});
+
     $('#save').click(function(){
 
             var objectArray = [];
@@ -44,7 +49,6 @@ $(document).ready(function () {
             console.log(objectArray);
             updateContent(objectArray);
     });
-
     // Main Functions
 
     function loadElements(){
@@ -54,7 +58,7 @@ $(document).ready(function () {
         $('#pageElements').html("<img src='img/pre.gif' />");
         $.ajax({
             type: "GET",
-            url: "EPget.php?page=" + page,
+            url: "php/EPget.php?page=" + page,
             success: function (result) {
                 displayElements(result);
             }
@@ -100,7 +104,7 @@ $(document).ready(function () {
         }
         $.ajax({
             type: "POST",
-            url: "EPupdate.php",
+            url: "php/EPupdate.php",
             data: data,
             success: function (result) {
                 console.log(result);
@@ -108,6 +112,10 @@ $(document).ready(function () {
         });
 
         console.log("Update function, page: "+ page);
+    }
+
+    function deleteItem(id){
+        console.log("Delete triggered, ID: " + id);
     }
 
     function saveToLocal(tag, id, content){
