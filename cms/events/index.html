@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="../style.css" type="text/css">
     <script src="../js/jQuery.js"></script>
     <script src="../js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../js/jquery-ui.min.css" type="text/css">
+
     <script src="../js/events.js"></script>
     <title>Highcliffe Content Management System</title>
 </head>
@@ -27,19 +29,32 @@
             <div class="clear"></div>
         </div>
         <!--Page Elements-->
+        <div class="calHead">
+            <div id="calPrev">Previous</div><div id="calRange">Calendar</div><div id="calNext">Next</div>
+        </div>
         <div id="pageElements"></div>
         <div id="addToolbar"><img src="../img/add.png"/>
 
             <form id="eventForm">
                 <label for="title">Event Title: </label><input id="title"/>
-                <label for="type">Type: </label><input id="type" />
-                <label for="time">Type: </label><input id="time" />
-                <label for="duration">Type: </label><select id="duration">
+                <label for="type">Type: </label><select id="type">
+                <option selected>Rehearsal</option>
+                <option>Practice</option>
+                <option>Performance</option>
+                <option>Sponsored</option>
+                <option>Fundraising</option>
+            </select>
+                <label for="timeIn">Time (24hr): </label><input placeholder="HH:MM" id="timeIn">
+                <label for="dateIn">Date: </label><input type="text" id="dateIn" placeholder="MM/DD/YYYY">
+                <label for="durationIn">Duration: </label><select id="durationIn">
                 <option>30 minutes</option>
-                <option>1 Hour</option>
+                <option selected>1 Hour</option>
                 <option>2 Hours</option>
                 <option>3 Hours</option>
-                <option>All day event</option></select><br />
+                <option>All day event</option>
+            </select>
+                <label for="publicBool">Public?</label><input type="checkbox" id="publicBool">
+                <br/>
                 <label for="description">Description: </label><textarea id="description"></textarea>
 
                 <button type="button" id="save">Save</button>

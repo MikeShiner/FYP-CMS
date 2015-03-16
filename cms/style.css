@@ -22,7 +22,6 @@ body {
     border: solid 1px #B8B8B8;
     width: 90%;
     min-height: 500px;
-    height: 100px;
     margin: 0 auto;
 }
 #options {
@@ -123,25 +122,100 @@ body {
 .itemContainer:active {
     cursor: move;
 }
+
+/* EVENTS CSS */
 #eventForm {
-    border: 1px solid;
     display: table-cell;
 }
 #eventForm input, select, textarea {
     border: 2px solid #CCC;
     border-radius: 4px;
-    font-size: 1.2em
+    font-size: 1em;
 }
 #eventForm input:hover, select:hover, textarea:hover {
     border: 2px solid #B6EDB6;
     border-radius: 4px;
-    font-size: 1.2em
 }
 #eventForm input:focus, select:focus, textarea:focus {
     border: 2px solid #8DE28D;
     border-radius: 4px;
-    font-size: 1.2em
 }
 #eventForm #description {
     width: 50%;
+}
+#eventForm #time {
+    width: 60px;
+}
+label, textarea, input[type="checkbox"] {
+    vertical-align: middle;
+}
+#eventForm button {
+    border: 2px solid #CCC;
+    border-radius: 40px;
+    font-size: 1em;
+    padding: 4px 10px;
+}
+#eventForm button:hover {
+    border: 2px solid #B6EDB6;
+}
+#eventForm button:active {
+    border: 2px solid #B6EDB6;
+    background-color: #D3F4D3;
+}
+.calHead {
+    border: 1px solid;
+    margin: 0 auto;
+}
+#calPrev, #calRange, #calNext{
+    text-align: center;
+    width: 33%;
+    display:inline-block
+}
+#calRange {
+    font-size: 1.3em;
+}
+.eventContainer {
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid #CCC;
+}
+.toolbarDel {
+    display: none;
+    border: none;
+    font-size: 1em;
+    text-decoration: underline;
+}
+.eventContainer:hover{
+    background-color: #f1f1f1;
+}
+.eventContainer:hover .toolbarBut{
+    display: inline-block;
+}
+.eventItem {
+    display:inline-block;
+    width: 150px;
+}
+.eventName {
+    width: 300px;
+}
+.eventToolbar {
+    display: inline-block;
+}
+.toolbarBut {
+    display: none;
+    text-decoration: underline;
+    border: none;
+    margin-left: 40px;
+    font-size: 1em;
+}
+.toolbarBut:hover {
+    color: white;
+    cursor: pointer;
+}
+.eventDes {
+    padding-top: 20px;
+    font-size: 0.8em;
+}
+.errorBorder {
+    border: 1px solid red;
 }
