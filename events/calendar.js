@@ -33,7 +33,7 @@ $(document).ready(function () {
         console.log(month);
         events = $.ajax({
             type: "GET",
-            url: "php/events.php?month=" + month,
+            url: "../php/events.php?month=" + month,
             async: false
         });
         console.log(events);
@@ -175,11 +175,10 @@ $(document).ready(function () {
 
                         if (events[k].date.substr(-2) == curDay && events[k].date.substr(0, 4) == year &&
                             (events[k].date.substr(5, 2) - 1) == month) {
-                            console.log(events);
 
                             html += '<td class="eventDay">';
                             html += curDay;
-                            html += '<p class="eventCap">' + events[k].name + '</p>';
+                            //html += '<p class="eventCap">' + events[k].name + '</p>';
                             html += '</td>';
                             curDay++;
                             eventBool = true;
@@ -198,7 +197,8 @@ $(document).ready(function () {
             }
             html += '</tr>';
         }
-        html += '</table>';
+        html += "</table>";
+        console.log(html);
         $('#listSwitch').html(html);
 
         // get Events

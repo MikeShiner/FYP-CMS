@@ -2,9 +2,14 @@ body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-.calHead, #dayHead {
-    border: 1px solid;
-    width: 670px;
+.calHead {
+    border: 1px solid #5280a1;
+    width: 448px;
+}
+
+#dayHead {
+    border-width: 0 1px 0 1px;
+    border-style: solid;
 }
 
 .calendar {
@@ -20,40 +25,41 @@ body {
 
 .calDayItem {
     display: inline-block;
-    width: 13.5%;
+    width: 14.2%;
     text-align: center;
     margin: 5px 0 5px 0;
 }
 
 .calDays {
     height: 2rem;
-    border-radius: 0;
 }
 
 table {
     /*border-spacing: 0.3rem;*/
-    width: 600px;
+    width: 450px;
+    border: solid 1px #5280a1;
     border-radius: 0 0 8px 8px;
-    background-color: #cdeaff;
+
 }
 
 tr, td {
-    color: rgb(82, 128, 161);
-    vertical-align: top;
-    text-align: left;
+    color: #5280a1;
+    text-align: center;
     font-size: 1em;
-    border: 1px solid black;
-    height: 100px;
-    min-width: 90px;
-    border-radius: 5px;
+    height: 60px;
+    border-radius: 30px;
     background-color: white;
+}
+td {
+    width: 20px !important;
 }
 td:hover {
     background-color: rgb(246, 250, 253);
     cursor: pointer;
 }
 .invalidDay {
-    background-color: #d4d4d4;
+    background-color: #eee;
+    border-radius: 5px;
 }
 .invalidDay:hover {
     background-color: #b0b0b0;
@@ -95,7 +101,7 @@ td:hover {
     height: 40px;
 }
 /*input[type="radio"] {*/
-    /*display: none;*/
+/*display: none;*/
 /*}*/
 label {
     background-color: #dddddd;
@@ -135,4 +141,8 @@ label {
 .infoCont {
     display: inline-block;
     width: 70%;
+}
+.calendar-widget {
+    border: 1px solid;
+    padding: 30px;
 }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>New Web</title>
+    <link href="../style.css" rel="stylesheet" type="text/css">
+    <link href="calendar.css" rel="stylesheet" type="text/css">
+    <script src="../js/jQuery.js" type="text/javascript"></script>
+    <script src="calendar.js" type="text/javascript"></script>
+</head>
+<body class="page-wrapper">
+<div class="title-section">
+    <section>
+        <header>
+            <h1><img src="../img/header_logo.png" height="61" width="394" alt="header_logo"></h1>
+        </header>
+        <nav class="navigation">
+            <ul>
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="">Upcoming Events</a></li>
+                <li><a href="">Recruitment</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Concerts &amp; Festivals</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Contact Us</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Choir in the Community</a></li>
+            </ul>
+        </nav>
+        <div class="header-image"></div>
+    </section>
+</div>
+<div class="intro">
+    <?php require 'event_content.php'; ?>
+</div>
+<div class="calendar-widget">
+    <div class="radioCont">
+        <form id="radForm">
+            <input type="radio" id="calView" name="form" checked>
+            <label for="calView" id="calFormLabel"><img src="img/grid.png" width="20" height="20"><span>Calendar</span></label>
+            <input type="radio" id="listView" name="form">
+            <label for="listView" id="listFormLabel"><img src="img/list.png" width="20"
+                                                          height="20"><span>List</span></label>
+        </form>
+    </div>
+    <div class="calendar">
+        <div class="calHead">
+            <div class="calHeadItem" id="prev">Prev</div>
+            <div class="calHeadItem" id="month_label">Month</div>
+            <div class="calHeadItem" id="next">Next</div>
+        </div>
+        <div id="listSwitch">
+        </div>
+    </div>
+</body>
+</html>

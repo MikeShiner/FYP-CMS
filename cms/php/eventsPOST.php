@@ -31,9 +31,9 @@ $newdate = date("Y-m-d", strtotime($data->date));
                                     VALUES (:name, :type, :time, :date, :public, :duration, :description)');
         $stmt->execute(array('name' => @$data->name, 'type' => @$data->type, 'time' => @$data->time, 'date' => $newdate,
             'public' => $publicBool, 'duration' => $newtime, 'description' => mysql_real_escape_string(@$data->description)));
-//        $result = $stmt->fetchAll();
-//        $contentItems = packContent($result);
-//        echo $contentItems;
+        $result = $stmt->fetchAll();
+        $contentItems = packContent($result);
+        echo $contentItems;
 
     } catch (PDOException $e) {
         var_dump($e);

@@ -1,0 +1,71 @@
+
+body {
+    font-family: 'Open Sans',Frutiger,"Frutiger Linotype",Univers,Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.25em;
+    margin: 0;
+}
+.page-wrapper {
+}
+.title-section {
+    background: linear-gradient(to bottom, #FFFFFF 0%, #EDF6FF 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 440px;
+    width: 100%;
+    border-bottom: solid 2px #446ca9;
+}
+.title-section section {
+    height: inherit;
+}
+header {
+    margin: 0 auto;
+    max-width: 1040px;
+    position: relative;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+nav {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    min-height: 30px;
+    width: 100%;
+    font-size: 1.1em;
+}
+nav ul {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+}
+nav ul li {
+    color: #4782BF;
+    display: inline-block;
+    float: left;
+    margin: 0 10px;
+}
+nav ul li a {
+    color: inherit;
+    display: block;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    border-bottom: 1px solid #A3E0FF;
+}
+.header-image {
+    background: url("img/header_photo.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid;
+    height: 303px;
+    margin: 0 auto;
+    width: 800px;
+}
+.intro {
+    padding: 10px 30px;
+}
+.intro h3 {
+    font-size: 2em;
+    color: #446ca9;
+}
+.intro p {
+    font-family: inherit;
+}

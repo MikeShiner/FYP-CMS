@@ -2,20 +2,33 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Feasibility Study 1</title>
-    <script src="js/jQuery.js"></script>
-    <script src="js/home.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/member.css">
-    <script src="js/jquery.cookie.js"></script>
+    <title>New Web</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-<div class="container">
-    <div id="cssSwitch">Switch Styles: <a href="#" id="visitor">Visitor</a> | <a href="#" id="member">Member</a></div>
-    <div class="content">
-<?php
- require 'php/home_content.php';
-?>
+<body class="page-wrapper">
+<div class="title-section">
+    <section>
+        <header>
+            <h1><img src="img/header_logo.png" height="61" width="394" alt="header_logo"></h1>
+        </header>
+        <nav class="navigation">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="events/index.php">Upcoming Events</a></li>
+                <li><a href="">Recruitment</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Concerts &amp; Festivals</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Contact Us</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Choir in the Community</a></li>
+            </ul>
+        </nav>
+        <div class="header-image"></div>
+    </section>
 </div>
-<a href="cms/index.html"> Quick link to CMS</a> <a href="events.html"> Quick link events</a> </div>
+<div class="intro">
+    <?php require 'php/home_content.php'; ?>
+</div>
 </body>
 </html>
