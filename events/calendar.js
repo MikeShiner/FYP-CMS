@@ -64,24 +64,44 @@ $(document).ready(function () {
         changeRadioView($('input[name=form]:checked', '#radForm').attr('id'));
     });
 
-    $('#calTable').on("click", "td", function () {
-        console.log($(this).text() + " Month: " + month)
+    listSwitch.on("click", "td", function () {
+        var infoMonth, daycheck = $(this).text(), infoSpace = $('#info');
+        infoSpace.html("");
+        infoMonth = (month+1);
+        if(infoMonth < "10"){
+            infoMonth = "0"+infoMonth;
+        }
+        if (!(parseInt(daycheck) > 10)) {
+            daycheck = "0" + daycheck;
+        }
+        console.log(daycheck + " Month: " + infoMonth);
+        for (var i = 0; i < events.length; i++) {
+            if(events[i].date.substr(-2) == daycheck &&
+                events[i].date.substr(5, 2) == infoMonth &&
+                events[i].date.substr(0, 4) == year){
+                console.log("Event name: " + events[i].name);
+                infoSpace.append("<h4>"+ events[i].name +"</h4><p class='infoType'>" +
+                events[i].type + " - " + events[i].time +"</p><p>"+ events[i].description +"</p>");
+            }
+        }
+        if(infoSpace.html() == ""){
+            infoSpace.html("<p>No event current scheduled for this day.</p>");
+        }
+        console.log("");
     });
 
     function changeRadioView(e) {
         $('#month_label').html(month_labels[month] + " " + year);
         if (e == "calView") {
-            listSwitch.slideUp("normal", function () {
-                drawCalendar(fullDate, month, year)
-            });
+            //listSwitch.slideUp("normal", function () {});
             console.log("Calendar Logged");
-            listSwitch.slideDown();
+            drawCalendar(fullDate, month, year);
+            //listSwitch.slideDown();
         } else if (e == "listView") {
-            listSwitch.slideUp("normal", function () {
-                drawListView(fullDate, month, year)
-            });
+            //listSwitch.slideUp("normal", function () {});
             console.log("List Logged");
-            listSwitch.slideDown();
+            drawListView(fullDate, month, year);
+            //listSwitch.slideDown();
         }
     }
 
@@ -198,7 +218,6 @@ $(document).ready(function () {
             html += '</tr>';
         }
         html += "</table>";
-        console.log(html);
         $('#listSwitch').html(html);
 
         // get Events

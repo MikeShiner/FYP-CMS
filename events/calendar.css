@@ -1,5 +1,5 @@
 body {
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-family: 'Open Sans',Frutiger,"Frutiger Linotype",Univers,Calibri,"Gill Sans","Gill Sans MT","Myriad Pro",Myriad,"DejaVu Sans Condensed","Liberation Sans","Nimbus Sans L",Tahoma,Geneva,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .calHead {
@@ -10,10 +10,6 @@ body {
 #dayHead {
     border-width: 0 1px 0 1px;
     border-style: solid;
-}
-
-.calendar {
-    display: inline-block;
 }
 
 .calHeadItem {
@@ -65,7 +61,7 @@ td:hover {
     background-color: #b0b0b0;
 }
 .curDay {
-    border: solid 1px #ff9487;
+    border: solid 1px #99D7FF;
 }
 .eventTable {
     display: inline-block;
@@ -81,7 +77,7 @@ td:hover {
     border: inherit
 }
 .eventDay {
-    background-color: rgb(224, 243, 255);
+    background-color: #B1E1FF;
 }
 .eventDay:hover {
     background-color: rgb(219, 238, 250);
@@ -143,6 +139,46 @@ label {
     width: 70%;
 }
 .calendar-widget {
-    border: 1px solid;
+    /*     border: 1px solid; */
     padding: 30px;
+    margin: 0 auto;
+    width: 70%;
+}
+.calendar {
+    display: inline-block;
+}
+#eventInfo {
+    font-family: inherit;
+    /*     display: inline-block; */
+    /*     min-width: 200px; */
+    width: 60%;
+    position: relative;
+    top: -30px;
+    margin-left: 40px;
+    float: left;
+}
+#calandSwitch {
+    float:left;
+}
+.clear {
+    clear: both;
+}
+#eventInfo h3 {
+    font-size: 2em;
+    color: #446ca9;
+}
+#eventInfo h4 {
+    font-size: 1.5em;
+    color: #446ca9;
+    text-decoration: underline;
+}
+.infoType {
+    font-style: italic;
+}
+#eventInfo p {
+    font-size: 1.1em;
+    color: #446ca9;
+}
+#prev, #next {
+    cursor: pointer;
 }
