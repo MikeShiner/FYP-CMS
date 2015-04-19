@@ -61,7 +61,8 @@ td:hover {
     background-color: #b0b0b0;
 }
 .curDay {
-    border: solid 1px #99D7FF;
+    border: solid 1px #3489ff;
+    background-color: inherit;
 }
 .eventTable {
     display: inline-block;
@@ -77,7 +78,7 @@ td:hover {
     border: inherit
 }
 .eventDay {
-    background-color: #B1E1FF;
+    background-color: #B1E1FF !important;
 }
 .eventDay:hover {
     background-color: rgb(219, 238, 250);
@@ -142,7 +143,7 @@ label {
     /*     border: 1px solid; */
     padding: 30px;
     margin: 0 auto;
-    width: 70%;
+    width: 80%;
 }
 .calendar {
     display: inline-block;
@@ -151,9 +152,9 @@ label {
     font-family: inherit;
     /*     display: inline-block; */
     /*     min-width: 200px; */
-    width: 60%;
+    width: 50%;
     position: relative;
-    top: -30px;
+    top: -50px;
     margin-left: 40px;
     float: left;
 }

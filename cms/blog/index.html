@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css" type="text/css">
+    <script src="../js/jQuery.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../js/jquery-ui.min.css" type="text/css">
+
+    <script src="../js/blog.js"></script>
+    <title>Highcliffe Content Management System</title>
+</head>
+<body>
+<div id="header"><h1>Highcliffe Youth Choir Content Management System</h1></div>
+<div id="container">
+    <div id="options">
+        <span class="smallHead optitle">Options: </span>
+        <ul>
+            <li><a href="../index.html">Edit Pages</a></li>
+            <li><a href="../events/index.html">Events Calendar</a></li>
+            <li class="optionSel">Blog</li>
+            <li><a href="#">Option 4</a></li>
+            <li><a href="#">Option 5</a></li>
+        </ul>
+    </div>
+    <div class="rightWrapper">
+        <div class="pageHead">
+            <div class="smallHead" id="curPage">Blog</div>
+            <div class="clear"></div>
+        </div>
+        <!--Page Elements-->
+        <div class="titleHead">
+            <div id="blogPrev" class="prev">Previous 10</div>
+            <div class="centerhead">Blog Entries</div>
+            <div id="blogNext" class="next">Next 10</div>
+        </div>
+        <div id="pageElements"></div>
+        <div id="addToolbar"><img src="../img/add.png"/>
+
+            <form id="blogForm">
+                <label for="title">Blog Title: </label><input id="title"/>
+                <label for="content">Content: </label><textarea id="content"></textarea>
+
+                <button type="button" id="save">Save</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

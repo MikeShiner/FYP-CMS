@@ -59,7 +59,7 @@ nav ul li a:hover {
     width: 800px;
 }
 .intro {
-         padding: 10px 30px;
+    padding: 10px 30px;
     width: 80%;
     margin: 0 auto;
 }
@@ -69,4 +69,38 @@ nav ul li a:hover {
 }
 .intro p {
     font-family: inherit;
+}
+.blog_container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px;
+}
+h2 {
+    font-size: 2em;
+    color: #446ca9;
+}
+h3 {
+    color: #446ca9;
+    font-size: 1em;
+}
+.entry_container {
+    border-top: 1px solid #446ca9;
+    border-bottom: 1px solid #446ca9;
+}
+.timestamp {
+    font-style: italic;
+}
+.secondNav {
+    border: 1px solid;
+    margin: 0 auto;
+    width: 90%;
+}
+.secondNav ul {
+    text-align: center;
+    border: 1px solid;
+    margin: 0 auto;
+}
+.secondNav li {
+    margin: 5px 10px;
+    display: inline-block;
 }

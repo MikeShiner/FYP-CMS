@@ -16,7 +16,7 @@
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="../events/index.php">Upcoming Events</a></li>
                 <li><a href="">Recruitment</a></li>
-                <li><a href="">Blog</a></li>
+                <li><a href="../blog/index.php">Blog</a></li>
                 <li><a href="">Concerts &amp; Festivals</a></li>
                 <li><a href="">Gallery</a></li>
                 <li><a href="">Contact Us</a></li>
@@ -28,7 +28,8 @@
     </section>
 </div>
 <div class="intro">
-    <?php require 'recruitment_content.php'; ?>
+    <?php $page="Recruitment";
+    require '../php/get_content.php'; ?>
 </div>
 </body>
 </html>

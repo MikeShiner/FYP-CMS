@@ -1,4 +1,5 @@
 <?php
+include_once("../../php/connect.php");
 /**
  * Created by PhpStorm.
  * User: Shiner
@@ -11,7 +12,7 @@ $objects = json_decode($_REQUEST['data']);
 
 if (isset($objects)){
 
-    $connect = new PDO("mysql:host=localhost;dbname=cl49-cms-h1t", "cl49-cms-h1t", "shinerfyp");
+    $connect = pdoConnect();
     $stmt = $connect->prepare('INSERT INTO ' . $_REQUEST['page'] . ' (id, pos, content_type, content) VALUES
                                 (:id, :pos, :content_type, :content)');
     $stmt->execute(array('id' => $objects->id, 'pos' =>  $objects->id,

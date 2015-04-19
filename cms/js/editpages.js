@@ -2,10 +2,11 @@
  * Created by Shiner on 07/03/2015.
  */
 $(document).ready(function () {
-    var changePos, highestId = 0, page="Home";
+    var changePos, highestId = 0, page="Home", totalElements =0;
     setup();
 
     function setup(){
+        clearStorage();
         loadElements();
     }
 
@@ -37,7 +38,6 @@ $(document).ready(function () {
     $('#clearStorage').click(function(){clearStorage()});
 
     $('#save').click(function(){
-
             var objectArray = [];
             //Get new positions of data
             //foreach()
@@ -48,6 +48,16 @@ $(document).ready(function () {
             }
             console.log(objectArray);
             updateContent(objectArray);
+    });
+
+    $('#add').click(function(){
+        var input = $('#type').val();
+        var content = $('#description').val();
+        if (input == "Heading"){
+            addElement("H1", content);
+        } else if (input == "Paragraph"){
+            addElement("P", content);
+        }
     });
     // Main Functions
 
@@ -87,6 +97,7 @@ $(document).ready(function () {
                 'height': '25px'});
 
             itemContainer.append(item).append(toolbar).appendTo('#pageElements');
+            totalElements = totalElements+1;
         }
         // Preloader reset
 
@@ -108,6 +119,8 @@ $(document).ready(function () {
             data: data,
             success: function (result) {
                 console.log(result);
+                $('#feedback').html(result);
+                loadElements();
             }
         });
 
@@ -115,7 +128,20 @@ $(document).ready(function () {
     }
 
     function deleteItem(id){
-        console.log("Delete triggered, ID: " + id);
+        var data = {
+            id: id
+        };
+        console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "php/EPdelete.php",
+            data: data,
+            success: function (result) {
+                $('#feedback').html(result);
+                loadElements();
+
+            }
+        });
     }
 
     function saveToLocal(tag, id, content){
@@ -135,4 +161,37 @@ $(document).ready(function () {
         console.log(localStorage);
     }
 
+    function addElement(tag, content) {
+        var page = $('#pageSelect').val();
+        var id = (parseInt(highestId) + 1);
+        var itemContainer = $('<div>', {
+            'class': 'itemContainer',
+            'id': 'item-' + id
+        });
+        var item = $('<' + tag + '/>', {
+            'class': "item",
+            'id': id,
+            'html': content,
+            'contentEditable': 'true'
+        });
+        itemContainer.append(item).appendTo('#pageElements');
+        highestId = parseInt(highestId) + 1;
+        var data = {
+            id: id,
+            pos: (totalElements+1),
+            tag: tag,
+            content: content,
+            page: page};
+        $.ajax({
+            type: "POST",
+            url: "php/EPadd.php",
+            data: data,
+            success: function (result) {
+                $('#feedback').html(result);
+                loadElements();
+
+            }
+        });
+    }
+    
 });

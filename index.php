@@ -15,20 +15,21 @@
             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="events/index.php">Upcoming Events</a></li>
-                <li><a href="">Recruitment</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="">Concerts &amp; Festivals</a></li>
-                <li><a href="">Gallery</a></li>
-                <li><a href="">Contact Us</a></li>
-                <li><a href="">About Us</a></li>
-                <li><a href="">Choir in the Community</a></li>
+                <li><a href="recruitment/index.php">Recruitment</a></li>
+                <li><a href="blog/index.php">Blog</a></li>
+                <li><a href="concerts/index.php">Concerts &amp; Festivals</a></li>
+                <li><a href="gallery/index.php">Gallery</a></li>
+                <li><a href="contactus/index.php">Contact Us</a></li>
+                <li><a href="aboutus/index.php">About Us</a></li>
+                <li><a href="community/index.php">Choir in the Community</a></li>
             </ul>
         </nav>
         <div class="header-image"></div>
     </section>
 </div>
 <div class="intro">
-    <?php require 'php/home_content.php'; ?>
+    <?php $page="Home";
+    require 'php/get_content.php';?>
 </div>
 </body>
 </html>

@@ -162,11 +162,11 @@ label, textarea, input[type="checkbox"] {
     border: 2px solid #B6EDB6;
     background: #B6EDB6;
 }
-.calHead {
+.titleHead {
     border: 1px solid;
     margin: 0 auto;
 }
-#calPrev, #calRange, #calNext{
+.prev, .centerhead, .next{
     text-align: center;
     width: 33%;
     display:inline-block
@@ -224,16 +224,16 @@ label, textarea, input[type="checkbox"] {
     display: table-cell;
     width: 100%;
 }
-#EPForm input, select, textarea {
+input, select, textarea {
     border: 2px solid #CCC;
     border-radius: 4px;
     font-size: 1em;
 }
-#EPForm input:hover, select:hover, textarea:hover {
+input:hover, select:hover, textarea:hover {
     border: 2px solid #B6EDB6;
     border-radius: 4px;
 }
-#EPForm input:focus, select:focus, textarea:focus {
+input:focus, select:focus, textarea:focus {
     border: 2px solid #8DE28D;
     border-radius: 4px;
 }
@@ -244,15 +244,18 @@ label, textarea, input[type="checkbox"] {
 label, textarea, input[type="checkbox"] {
     vertical-align: middle;
 }
-#EPForm button {
+button {
     border: 2px solid #CCC;
     border-radius: 40px;
     font-size: 1em;
     padding: 4px 10px;
 }
-#EPForm button:hover {
+button:hover {
     border: 2px solid #B6EDB6;
 }
-#EPForm button:active {
+button:active {
     border: 2px solid #B6EDB6;
+}
+#blogForm textarea {
+    width: 50%;
 }

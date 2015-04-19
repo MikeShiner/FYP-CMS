@@ -1,0 +1,47 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.11
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 25, 2015 at 01:53 PM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `cl49-cms-h1t`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `home`
+--
+
+CREATE TABLE IF NOT EXISTS `page_content` (
+`id` int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `pos` int(100) DEFAULT NULL,
+  `content_type` varchar(20) NOT NULL,
+  `content` text NOT NULL,
+  `page` VARCHAR(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `home`
+--
+
+INSERT INTO `page_content` (`id`, `pos`, `content_type`, `content`, `page`) VALUES
+(1, 1, 'H3', 'Welcome to Highcliffe Youth Choir', 'Home'),
+(2, 2, 'P', 'The Choir exists to give young people aged between 7 and 18 the opportunity to enjoy singing together to the\r\n        highest possible standard, giving pleasure to others and furthering our choral tradition. The Choir performs\r\n        frequently in the local area, singing Christmas Carols in popular and prestigious venues such as Beaulieu Abbey,\r\n        The Chewton Glen Hotel, The Christchurch Harbour Hotel, and the Captains Club Hotel in Christchurch, as well as\r\n        concerts at places like Poole Lighthouse Theatre.', 'Home'),
+(3, 3, 'P', 'Highcliffe Youth choir, formerly Highcliffe Junior Choir, has just appointed a new Musical director,\r\n        Dr Jane Oakland. Jane has sung in opera houses throughout the UK and Europe. Now resident in Dorset she is\r\n        increasingly in demand as a choir trainer. In addition to Highcliffe Youth Choir, Jane is Musical Director of\r\n        the Dorset Police Male Voice Choir. Jane also works as an applied music psychologist helping musicians of all\r\n        ages to improve confidence in public performance.', 'Home'),
+(4, 1, 'H3', 'Heading for Recruitment', 'Recruitment'),
+(5, 2, 'P', 'Paragraph for Recruitment', 'Recruitment'),
+(6, 1, 'H3', 'Blog Title Here', 'Blog'),
+(7, 2, 'P', 'Paragraph for Blog space', 'Blog'),
+(8, 1, 'H3', 'Events Title', 'Events'),
+(9, 2, 'P', 'Events Paragraph', 'Events');

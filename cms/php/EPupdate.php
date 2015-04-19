@@ -11,10 +11,10 @@ $contentBool = true;
 $positionBool = true;
 
 if (isset($objects)) {
+    $connect = new PDO("mysql:host=localhost;dbname=cl49-cms-h1t", "cl49-cms-h1t", "shinerfyp");
     for ($i = 0; $i < count($objects); $i++) {
         try {
-            $connect = new PDO("mysql:host=localhost;dbname=cl49-cms-h1t", "cl49-cms-h1t", "shinerfyp");
-            $stmt = $connect->prepare('UPDATE '. $page .' SET content_type = :tag, content = :content
+            $stmt = $connect->prepare('UPDATE `page_content` SET content_type = :tag, content = :content
     WHERE id = :id');
             $stmt->execute(array('tag' => @$objects[$i]->tag, 'content' => mysql_real_escape_string(@$objects[$i]->content),
                 'id' => @$objects[$i]->id));
@@ -29,8 +29,7 @@ if (isset($_REQUEST['positions'])) {
     $string = explode("&", $_REQUEST['positions']);
     for ($i = 0; $i < count($string); $i++) {
         try {
-            $connect = new PDO("mysql:host=localhost;dbname=cl49-cms-h1t", "cl49-cms-h1t", "shinerfyp");
-            $stmt = $connect->prepare('UPDATE ' . $page . ' SET pos = :pos WHERE id = :id');
+            $stmt = $connect->prepare('UPDATE `page_content` SET pos = :pos WHERE id = :id');
             $stmt->execute(array('pos' => ($i + 1), 'id' => substr($string[$i], 7)));
         } catch (PDOException $e) {
             var_dump($e);

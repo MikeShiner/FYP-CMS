@@ -1,0 +1,123 @@
+body {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.calHead, #dayHead {
+    border: 1px solid;
+    width: 670px;
+}
+
+.calendar {
+    display: inline-block;
+}
+
+.calHeadItem {
+    display: inline-block;
+    width: 32%;
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+
+.calDayItem {
+    display: inline-block;
+    width: 13.5%;
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+
+.calDays {
+    height: 2rem;
+    border-radius: 0;
+}
+
+table {
+    /*border-spacing: 0.3rem;*/
+    width: 600px;
+    border-radius: 0 0 8px 8px;
+    background-color: #cdeaff;
+}
+
+tr, td {
+    color: rgb(82, 128, 161);
+    vertical-align: top;
+    text-align: left;
+    font-size: 1em;
+    border: 1px solid black;
+    height: 100px;
+    min-width: 90px;
+    border-radius: 5px;
+    background-color: white;
+}
+td:hover {
+    background-color: rgb(246, 250, 253);
+    cursor: pointer;
+}
+.invalidDay {
+    background-color: #d4d4d4;
+}
+.invalidDay:hover {
+    background-color: #b0b0b0;
+}
+.curDay {
+    border: solid 1px #ff9487;
+}
+.eventTable {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    border: solid 1px;
+    width: 400px;
+}
+.eventHeader {
+    width: 100%;
+}
+.events {
+    width: 100%;
+    border: inherit
+}
+.eventDay {
+    background-color: rgb(224, 243, 255);
+}
+.eventDay:hover {
+    background-color: rgb(219, 238, 250);
+}
+.dateNum {
+    vertical-align: top;
+    text-align: left;
+}
+.eventCap {
+    font-size: 0.8em;
+    display: block;
+}
+.listSwitch {
+    height:800px;
+}
+.radioCont {
+    height: 40px;
+}
+/*input[type="radio"] {*/
+    /*display: none;*/
+/*}*/
+label {
+    background-color: #dddddd;
+    height: 30px;
+    padding: 10px
+}
+#calFormLabel {
+    border-radius: 10px 0 0 10px;
+}
+#listFormLabel {
+    margin-left: -5px;
+    border-radius: 0 10px 10px 0;
+}
+
+.radioCont input[type="radio"]{
+    display: none;
+}
+.radioCont input[type="radio"]:checked + label {
+    background-color: #eeeeee;
+}
+#listViewCont {
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+}

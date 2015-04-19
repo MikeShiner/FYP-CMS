@@ -230,5 +230,13 @@ $(document).ready(function () {
         //    console.log("Days in this month: " + dIM);
         //    console.log("Starting Day: " + day_labels[startingDay] + " (" + startingDay + ")");
     }
+
+
+
+
+
+
+
+
 })
 ;

@@ -11,7 +11,7 @@ getContent($page);
 function getContent($page){
     try {
         $connect = new PDO("mysql:host=localhost;dbname=cl49-cms-h1t", "cl49-cms-h1t", "shinerfyp");
-        $stmt = $connect->prepare('SELECT * FROM ' . $page . ' ORDER BY pos ASC');
+        $stmt = $connect->prepare('SELECT * FROM page_content WHERE page="'.$page.'" ORDER BY pos ASC');
         $stmt->execute();
         $result = $stmt->fetchAll();
         $contentItems = packContent($result);
